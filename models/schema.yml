@@ -58,5 +58,139 @@ sources:
               description: logcost
             - name: ship_cost
               description: ship cost
+        - name: adwords
+          identifier: raw_gz_adwords
+          description: campaign adwords
+          tests:
+            - unique: 
+                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+          columns:
+            - name: date_date
+              description: campaign date and primary key
+              tests:
+                - not_null
+            - name: paid_source
+              description: adwords and primary key
+              tests:
+                - not_null
+            - name: campaign_key
+              description: campaign id and primary key
+              tests:
+                - not_null
+            - name: camPGN_name
+              description: campaign name
+            - name: ads_cost
+              description: ads cost
+            - name: impression
+              description: nb of impressions
+            - name: click
+              description: nb of clicks
+        - name: bing
+          identifier: raw_gz_bing
+          description: campaign bing
+          tests:
+            - unique: 
+                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+          columns:
+            - name: date_date
+              description: campaign date and primary key
+              tests:
+                - not_null
+            - name: paid_source
+              description: bing and primary key
+              tests:
+                - not_null
+            - name: campaign_key
+              description: campaign id and primary key
+              tests:
+                - not_null
+            - name: camPGN_name
+              description: campaign name
+            - name: ads_cost
+              description: ads cost
+            - name: impression
+              description: nb of impressions
+            - name: click
+              description: nb of clicks
+        - name: criteo
+          identifier: raw_gz_criteo
+          description: campaign criteo
+          tests:
+            - unique: 
+                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+          columns:
+            - name: date_date
+              description: campaign date and primary key
+              tests:
+                - not_null
+            - name: paid_source
+              description: criteo and primary key
+              tests:
+                - not_null
+            - name: campaign_key
+              description: campaign id and primary key
+              tests:
+                - not_null
+            - name: camPGN_name
+              description: campaign name
+            - name: ads_cost
+              description: ads cost
+            - name: impression
+              description: nb of impressions
+            - name: click
+              description: nb of clicks
+        - name: facebook
+          identifier: raw_gz_facebook
+          description: campaign facebook
+          tests:
+            - unique: 
+                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+          columns:
+            - name: date_date
+              description: campaign date and primary key
+              tests:
+                - not_null
+            - name: paid_source
+              description: facebook and primary key
+              tests:
+                - not_null
+            - name: campaign_key
+              description: campaign id and primary key
+              tests:
+                - not_null
+            - name: camPGN_name
+              description: campaign name
+            - name: ads_cost
+              description: ads cost
+            - name: impression
+              description: nb of impressions
+            - name: click
+              description: nb of clicks
 
-
+models:
+  - name: int_campaigns
+    tests:
+      - unique:
+          column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+    columns:
+            - name: date_date
+              description: campaign date and primary key
+              tests:
+                - not_null
+            - name: paid_source
+              description: campaigns
+              tests:
+                - not_null
+            - name: campaign_key
+              description: campaign id and primary key
+              tests:
+                - not_null
+            - name: campaign_name
+              description: campaign name
+            - name: ads_cost
+              description: ads cost
+            - name: impression
+              description: nb of impressions
+            - name: click
+              description: nb of clicks
+    
