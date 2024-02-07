@@ -36,9 +36,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  dbt_Greenweez:
+  # dbt_Greenweez:
     # Applies to all files under models/mart/
-    mart:
-      +materialized: table
-      finance:
-        schema: finance
+    # mart:
+      # +materialized: table
+      # finance:
+        # schema: finance
