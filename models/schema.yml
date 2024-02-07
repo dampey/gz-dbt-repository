@@ -63,22 +63,20 @@ sources:
           description: campaign adwords
           tests:
             - unique: 
-                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+                column_name: "(date_date || '-' || camPGN_name)"
           columns:
             - name: date_date
               description: campaign date and primary key
               tests:
                 - not_null
             - name: paid_source
-              description: adwords and primary key
-              tests:
-                - not_null
+              description: adwords 
             - name: campaign_key
-              description: campaign id and primary key
+              description: campaign id 
+            - name: camPGN_name
+              description: campaign name and primary key
               tests:
                 - not_null
-            - name: camPGN_name
-              description: campaign name
             - name: ads_cost
               description: ads cost
             - name: impression
@@ -90,22 +88,20 @@ sources:
           description: campaign bing
           tests:
             - unique: 
-                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+                column_name: "(date_date || '-' || camPGN_name)"
           columns:
             - name: date_date
               description: campaign date and primary key
               tests:
                 - not_null
             - name: paid_source
-              description: bing and primary key
-              tests:
-                - not_null
+              description: bing 
             - name: campaign_key
-              description: campaign id and primary key
+              description: campaign id 
+            - name: camPGN_name
+              description: campaign name and primary key
               tests:
                 - not_null
-            - name: camPGN_name
-              description: campaign name
             - name: ads_cost
               description: ads cost
             - name: impression
@@ -117,22 +113,20 @@ sources:
           description: campaign criteo
           tests:
             - unique: 
-                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+                column_name: "(date_date || '-' || camPGN_name)"
           columns:
             - name: date_date
               description: campaign date and primary key
               tests:
                 - not_null
             - name: paid_source
-              description: criteo and primary key
-              tests:
-                - not_null
+              description: criteo 
             - name: campaign_key
-              description: campaign id and primary key
+              description: campaign id 
+            - name: camPGN_name
+              description: campaign name and primary key
               tests:
                 - not_null
-            - name: camPGN_name
-              description: campaign name
             - name: ads_cost
               description: ads cost
             - name: impression
@@ -144,22 +138,20 @@ sources:
           description: campaign facebook
           tests:
             - unique: 
-                column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+                column_name: "(date_date || '-' || camPGN_name)"
           columns:
             - name: date_date
               description: campaign date and primary key
               tests:
                 - not_null
             - name: paid_source
-              description: facebook and primary key
-              tests:
-                - not_null
+              description: facebook 
             - name: campaign_key
-              description: campaign id and primary key
+              description: campaign id 
+            - name: camPGN_name
+              description: campaign name and primary key
               tests:
                 - not_null
-            - name: camPGN_name
-              description: campaign name
             - name: ads_cost
               description: ads cost
             - name: impression
@@ -171,14 +163,14 @@ models:
   - name: int_campaigns
     tests:
       - unique:
-          column_name: "(date_date || '-' || paid_source || '-' || campaign_key)"
+          column_name: "(date_date || '-' || paid_source || '-' || campaign_key || '-' || campaign_name)"
     columns:
             - name: date_date
               description: campaign date and primary key
               tests:
                 - not_null
             - name: paid_source
-              description: campaigns
+              description: campaigns and primary key
               tests:
                 - not_null
             - name: campaign_key
@@ -186,11 +178,25 @@ models:
               tests:
                 - not_null
             - name: campaign_name
-              description: campaign name
+              description: campaign name and primary key
+              tests:
+                - not_null
             - name: ads_cost
               description: ads cost
             - name: impression
               description: nb of impressions
             - name: click
               description: nb of clicks
-    
+  - name: int_campaigns_day
+    columns:
+            - name: date_date
+              description: campaign date and primary key
+              tests:
+                - unique
+                - not_null
+            - name: ads_cost
+              description: ads cost
+            - name: ads_impression
+              description: nb of impressions
+            - name: ads_clicks
+              description: nb of clicks
